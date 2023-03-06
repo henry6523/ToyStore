@@ -1,0 +1,49 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>ATN Store</title>
+    </head>
+
+    <body>
+        <h1>Input toys information</h1>
+        
+        <!-- (1): CREATE Task -->         
+        <!-- --> 
+        <form action="/list" method="POST">   
+            <input type="text" placeholder="Input name of toy here" name="name" />        
+            <input type="text" placeholder="Input quantity" name="quantity" />
+            <button type="submit">Submit</button>
+        </form>
+        <!-- -->                               
+
+        <!-- (2) READ Task -->                        
+        <h2> All Information about toys </h2>
+        <ul class="list">
+            <!-- Loop through quotes -->
+            <% for(var i = 0; i < list.length; i++) {%>
+                <li class="list">
+                    <!-- Output name from the iterated quote object -->
+                    <span><%= list[i].name %></span>:
+                    <!-- Output quantity from the iterated quote object -->
+                    <span><%= list[i].quantity %></span>
+                </li>
+            <% } %>
+        </ul>    
+
+        <!-- (3) DELETE Task -->
+        <div>
+            <h2>Delete toys information</h2>
+            <p>
+            Delete toys information
+            </p>
+            <button id="delete-button">Delete</button>
+        </div>
+        <!-- ... -->
+        
+        <script src="/main.js"></script>
+    
+    </body>
+
+</html>
